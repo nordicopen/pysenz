@@ -25,9 +25,9 @@ from authlib.integrations.httpx_client import AsyncOAuth2Client
 from authlib.oauth2.rfc6749 import OAuth2Token
 from httpx import AsyncClient, Response
 
-AUTHORIZATION_ENDPOINT = "https://id.senzthermostat.nvent.com/connect/authorize"
-TOKEN_ENDPOINT = "https://id.senzthermostat.nvent.com/connect/token"
-API_ENDPOINT = "https://api.senzthermostat.nvent.com/api/v1"
+AUTHORIZATION_ENDPOINT = "https://id.senzthermostat.chemelex.com/connect/authorize"
+TOKEN_ENDPOINT = "https://id.senzthermostat.chemelex.com/connect/token"
+API_ENDPOINT = "https://api.senzthermostat.chemelex.com/api/v1"
 
 
 class AbstractSENZAuth(ABC):
