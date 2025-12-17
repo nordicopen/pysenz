@@ -1,11 +1,13 @@
-# aioSENZ package 
-[![PyPI](https://img.shields.io/pypi/v/aiosenz)](https://pypi.org/project/aiosenz) ![PyPI - Downloads](https://img.shields.io/pypi/dm/aiosenz) [![PyPI - License](https://img.shields.io/pypi/l/aiosenz?color=blue)](https://github.com/milanmeu/aiosenz/blob/main/COPYING)
+# pysenz package 
+[![PyPI](https://img.shields.io/pypi/v/pysenz)](https://pypi.org/project/pysenz) ![PyPI - Downloads](https://img.shields.io/pypi/dm/pysenz) [![PyPI - License](https://img.shields.io/pypi/l/pysenz?color=blue)](https://github.com/nordicopen/pysenz/blob/main/COPYING)
 
-An async Python wrapper for the nVent Raychem SENZ RestAPI.
+This library is based on a fork of https://github.com/milanmeu/aiosenz
+
+An async Python wrapper for the nVent (a.k.a. Chemelex) Raychem SENZ RestAPI.
 
 ## Installation
 ```bash
-pip install aiosenz
+pip install pysenz
 ```
 
 ## OAuth2
@@ -13,15 +15,15 @@ This package offers an `AbstractSENZAuth`, where you should handle the OAuth2 to
 
 ## Grant type
 
-`SENZAuth` uses the Authorization Code grant type. This requires a Client ID and Client Secret, more information is available in [the RestAPI documentation](https://api.senzthermostat.nvent.com).
+`SENZAuth` uses the Authorization Code grant type. This requires a Client ID and Client Secret, more information is available in [the RestAPI documentation](https://api.senzthermostat.chemelex.com).
 
 ## Scopes
-AioSENZ uses the `restapi` and `offline_access` scope, this is set as default in SENZAuth and should be set in the OAuth2 client if you are using the AbstractSENZAuth class. The OpenID (`openid`) and OpenID Profile (`profile`) scopes are not supported, because nVent recommends to use the RestAPI Account instead.
+pysenz uses the `restapi` and `offline_access` scope, this is set as default in SENZAuth and should be set in the OAuth2 client if you are using the AbstractSENZAuth class. The OpenID (`openid`) and OpenID Profile (`profile`) scopes are not supported, because chemelex recommends to use the RestAPI Account instead.
 
 ## Example
 ```python
 from asyncio import run
-from aiosenz import SENZAuth, SENZAPI
+from pysenz import SENZAuth, SENZAPI
 import httpx
 
 async def main():
