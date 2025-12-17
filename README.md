@@ -1,14 +1,19 @@
-# aioSENZ package 
-[![PyPI](https://img.shields.io/pypi/v/aiosenz)](https://pypi.org/project/aiosenz) ![PyPI - Downloads](https://img.shields.io/pypi/dm/aiosenz) [![PyPI - License](https://img.shields.io/pypi/l/aiosenz?color=blue)](https://github.com/milanmeu/aiosenz/blob/main/COPYING)
+# pysenz package
 
-An async Python wrapper for the nVent Raychem SENZ RestAPI.
+[![PyPI](https://img.shields.io/pypi/v/pysenz)](https://pypi.org/project/pysenz) ![PyPI - Downloads](https://img.shields.io/pypi/dm/pysenz) [![PyPI - License](https://img.shields.io/pypi/l/pysenz?color=blue)](https://github.com/nordicopen/pysenz/blob/main/COPYING)
+
+This repo is based on a fork from https://github.com/milanmeu/aiosenz
+
+An async Python wrapper for the nVent (aka Chemelex) Raychem SENZ RestAPI.
 
 ## Installation
+
 ```bash
-pip install aiosenz
+pip install pysenz
 ```
 
 ## OAuth2
+
 This package offers an `AbstractSENZAuth`, where you should handle the OAuth2 tokens and provide a valid access token in `get_access_token()`. You can use `SENZAuth` if you don't want to handle the OAuth2 tokens yourself.
 
 ## Grant type
@@ -16,12 +21,14 @@ This package offers an `AbstractSENZAuth`, where you should handle the OAuth2 to
 `SENZAuth` uses the Authorization Code grant type. This requires a Client ID and Client Secret, more information is available in [the RestAPI documentation](https://api.senzthermostat.nvent.com).
 
 ## Scopes
-AioSENZ uses the `restapi` and `offline_access` scope, this is set as default in SENZAuth and should be set in the OAuth2 client if you are using the AbstractSENZAuth class. The OpenID (`openid`) and OpenID Profile (`profile`) scopes are not supported, because nVent recommends to use the RestAPI Account instead.
+
+pysenz uses the `restapi`, `openid`, and `offline_access` scope, this is set as default in SENZAuth and should be set in the OAuth2 client if you are using the AbstractSENZAuth class.
 
 ## Example
+
 ```python
 from asyncio import run
-from aiosenz import SENZAuth, SENZAPI
+from pysenz import SENZAuth, SENZAPI
 import httpx
 
 async def main():
@@ -36,7 +43,7 @@ async def main():
         print("Authorization URI: ", uri)
         authorization_response = input("The authorization response URL: ")
         await senz_auth.set_token_from_authorization_response(authorization_response)
-        
+
         senz_api = SENZAPI(senz_auth)
         thermostats = await senz_api.get_thermostats()
         for thermostat in thermostats:
