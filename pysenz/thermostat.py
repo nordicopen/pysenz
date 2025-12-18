@@ -47,6 +47,12 @@ class Thermostat:
         return self.raw_data["name"]
 
     @property
+    def current_temperature(self) -> float:
+        """Return the current registered temperature in celsius."""
+        return self.raw_data["currentTemperature"] / 100
+
+# Spelling error - remove after 2026-03-01
+    @property
     def current_temperatue(self) -> float:
         """Return the current registered temperature in celsius."""
         return self.raw_data["currentTemperature"] / 100
