@@ -29,10 +29,10 @@ pysenz uses the `restapi`, `openid`, and `offline_access` scope, this is set as 
 ```python
 from asyncio import run
 from pysenz import SENZAuth, SENZAPI
-import httpx
+import httpx2
 
 async def main():
-    async with httpx.AsyncClient() as httpx_client:
+    async with httpx2.AsyncClient() as httpx_client:
         senz_auth = SENZAuth(
             httpx_client,
             "YOUR_CLIENT_ID",
