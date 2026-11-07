@@ -1,4 +1,4 @@
-httpx
+httpx2
 
 build
 bump2version==1.0.1
