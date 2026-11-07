@@ -6,30 +6,64 @@ sort-direction: ascending
 
 categories:
   - title: "🚨 Breaking changes"
-    labels:
-      - "breaking-change"
+    when:
+      labels:
+        - "breaking-change"
   - title: "✨ New features"
-    labels:
-      - "new-feature"
+    when:
+      labels:
+        - "new-feature"
   - title: "🐛 Bug fixes"
-    labels:
-      - "bugfix"
+    when:
+      labels:
+        - "bugfix"
   - title: "🚀 Enhancements"
-    labels:
-      - "enhancement"
-      - "refactor"
-      - "performance"
+    when:
+      labels:
+        - "enhancement"
+        - "refactor"
+        - "performance"
   - title: "🧰 Maintenance"
-    labels:
-      - "maintenance"
-      - "ci"
+    when:
+      labels:
+        - "maintenance"
+        - "ci"
   - title: "📚 Documentation"
-    labels:
-      - "documentation"
+    when:
+      labels:
+        - "documentation"
   - title: "⬆️ Dependency updates"
     collapse-after: 2
-    labels:
-      - "dependencies"
+    when:
+      labels:
+        - "dependencies"
+
+  - type: "version-resolver"
+    semver-increment: "major"
+    when:
+      labels:
+        - "major"
+
+  - type: "version-resolver"
+    semver-increment: "minor"
+    when:
+      labels:
+        - "minor"
+
+  - type: "version-resolver"
+    semver-increment: "patch"
+    when:
+      labels:
+        - "fix"
+        - "bugfix"
+        - "chore"
+        - "ci"
+        - "dependencies"
+        - "documentation"
+        - "enhancement"
+        - "patch"
+        - "performance"
+        - "refactor"
 
 autolabeler:
   - label: "maintenance"
@@ -53,27 +87,6 @@ autolabeler:
       - "Makefile"
       - "setup.cfg"
       - "pyproject.toml"
-
-version-resolver:
-  major:
-    labels:
-      - "major"
-      - "breaking-change"
-  minor:
-    labels:
-      - "minor"
-      - "new-feature"
-  patch:
-    labels:
-      - "bugfix"
-      - "chore"
-      - "ci"
-      - "dependencies"
-      - "documentation"
-      - "enhancement"
-      - "performance"
-      - "refactor"
-  default: patch
 
 template: |
   <!--
