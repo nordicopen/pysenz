@@ -9,4 +9,4 @@ pre-commit==4.7.0
 ruff==0.17.3
 setuptools==84.2.1
 wheel
-twine==6.2.0
+twine==7.0.0
